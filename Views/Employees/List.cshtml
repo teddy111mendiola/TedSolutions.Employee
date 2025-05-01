@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+}
+
+@using TedSolutions.Employee.Models.Entities;
+@model List<TedSolutions.Employee.Models.Entities.Employee>
+@{
+}
+<a href="@Url.Action("Create","Employees")">Create</a>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Employee Number</th>
+                        <th>Last name</th>
+                        <th>First name</th>
+                        <th>Designation</th>
+                        <th>Address</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var emp in Model)
+                    {
+                        <tr>
+                            <td>@emp.EmployeeNumber</td>
+                            <td>@emp.LastName</td>
+                            <td>@emp.FirstName</td>
+                            <td>@emp.Designation</td>
+                            <td>@emp.Address</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" href="@Url.Action("Edit","Employees",new {id=emp.Id})">Edit</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-danger" href="@Url.Action("Delete","Employees",new {id=emp.Id})">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

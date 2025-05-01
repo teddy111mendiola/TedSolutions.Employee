@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@using TedSolutions.Employee.Models.Entities;
+@model TedSolutions.Employee.Models.Entities.Employee
+@{
+}
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" action="@Url.Action("Update","Employees")">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group">
+                <label>Last name</label>
+                <input type="text" class="form-control" name="LastName" placeholder="last name" value="@Model.LastName" required>
+            </div>
+            <div class="form-group">
+                <label>First name</label>
+                <input type="text" class="form-control" name="FirstName" placeholder="first name" value="@Model.FirstName" required>
+            </div>
+            <div class="form-group">
+                <label>Staff No</label>
+                <input type="text" class="form-control" name="EmployeeNumber" placeholder="employee number" value="@Model.EmployeeNumber" required>
+            </div>
+            <div class="form-group">
+                <label>Designation</label>
+                <input type="text" class="form-control" name="Designation" placeholder="designation" value="@Model.Designation" required>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" name="Address" placeholder="address" required>@Model.Address</textarea>
+            </div>
+            <button class="btn btn-success" type="submit">Update Employee</button>
+        </form>
+    </div>
+</div>
